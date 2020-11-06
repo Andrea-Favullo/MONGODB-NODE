@@ -17,7 +17,6 @@ router.get('/', function (req, res, next) {
         }); //Eseguo la query e passo una funzione di callback
 
     });
-    //res.send(result);
 });
 
 module.exports = router;
