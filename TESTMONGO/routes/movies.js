@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient; //Importo la libreria mongod
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    const uri = ""
+    const uri = "mongodb+srv://andrea-favullo:m0ng0D4RI0B4nF1@cluster0.dnkc2.mongodb.net/Cluster0?retryWrites=true&w=majority"
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(err => {
         const collection = client.db("sample_mflix").collection("movies"); //Mi connetto alla collection movies
