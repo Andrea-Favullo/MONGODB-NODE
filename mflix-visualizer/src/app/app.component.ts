@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private http : HttpClient){}
 
   load10Movies(){
-    this.obs = this.http.get("https://3000-c8e82154-5eb6-4355-bb47-106a98c4cbbe.ws-eu01.gitpod.io/test-movies/list/10");
+    this.obs = this.http.get("https://3000-b2414a9c-4000-4343-aa5b-a81dbf28ecb0.ws-eu01.gitpod.io/movies/list/10");
     this.obs.subscribe(this.getData);
   }
 
