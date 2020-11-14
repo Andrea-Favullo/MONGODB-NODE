@@ -1,9 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
-  <body>
-    <button (click)="load10Movies()">Carica 10 film</button>
-    <hr>
-    {{results | json}}
-  </body>
+
+<head></head>
+
+<body>
+    <!--NAVBAR BOTTONI-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+                <!--BOTTONE 10 FILM-->
+					<span class="btn btn-primary" (click)="load10Movies()">Carica 10 film</span>
+				</li>
+				<li class="nav-item">
+                <!--BOTTONE 10 FILM HORROR-->
+					<span class="btn btn-primary" (click)="loadMovieByGenre('Horror')">Film Horror</span>
+				</li>
+				<li class="nav-item">
+                <!--BOTTONE 10 FILM COMICI-->
+					<span class="btn btn-primary" (click)="loadMovieByGenre('Comedy')">Film Comici</span>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+    <!--CARD FILM-->
+	<div class="card-columns">
+		<div *ngFor="let movie of results" class="card">
+			<hr>
+            <!--POSTER DEL FILM-->
+			<div *ngIf="movie.poster; else elseBlock1"> <img class="card-img-top" alt="Movie Poster" [src]="photoURL(movie.poster)"> </div>
+            <ng-template #elseBlock1>
+                <span class="alert alert-info" role="alert"><strong>Info!</strong> Immagine mancante</span>
+            </ng-template>
+
+            <div class="card-body text-center">
+                <!--TITOLO DEL FILM-->
+                <div *ngIf="movie.title; else elseBlock2"> <h4 class="card-title">{{movie.title}}</h4> </div>
+                <ng-template #elseBlock2>
+                    <span class="alert alert-info" role="alert"><strong>Info!</strong> Titolo mancante</span>
+                </ng-template>
+                <!--DESCRIZIONE DEL FILM-->
+                <div *ngIf="movie.fullplot; else elseBlock3"> <p class="card-text">{{movie.fullplot}}</p> </div>
+                <ng-template #elseBlock3>
+                    <span class="alert alert-info" role="alert"><strong>Info!</strong> Descrizione mancante</span>
+                </ng-template>
+
+            </div>
+			</div>
+	</div>
+</body>
+
 </html>
