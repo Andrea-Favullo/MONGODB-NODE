@@ -11,10 +11,14 @@ export class AppComponent {
   title = 'mflix-visualizer';
   results : Object[];
   obs : Observable<object>;
-  constructor(private http : HttpClient){}
+  url: string = "https://3000-ea48c270-e9a0-4c2a-a48a-ea44c13b04ec.ws-eu01.gitpod.io/";
+  
+  constructor(public http: HttpClient) { }
+
+  ngOnInit(): void {  }
 
   load10Movies(){
-    this.obs = this.http.get("https://3000-b2414a9c-4000-4343-aa5b-a81dbf28ecb0.ws-eu01.gitpod.io/movies/list/10");
+    this.obs = this.http.get<Object[]>(this.url.concat("movies/list"));
     this.obs.subscribe(this.getData);
   }
 

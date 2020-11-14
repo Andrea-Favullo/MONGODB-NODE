@@ -7,6 +7,8 @@ const uri = "mongodb+srv://andrea-favullo:m0ng0D4RI0B4nF1@cluster0.dnkc2.mongodb
 router.get('/movie_from_title/:title', function (req, res, next) {
     title = req.params.title;
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     client.connect(getMovieFromTitle);
     function getMovieFromTitle(err) {
@@ -29,6 +31,8 @@ router.get('/list/', function (req, res, next) {
     const uri = "mongodb+srv://andrea-favullo:m0ng0D4RI0B4nF1@cluster0.dnkc2.mongodb.net/Cluster0?retryWrites=true&w=majority"
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
     client.connect(err => {
         // mi connetto alla collection movies
         const collection = client.db("sample_mflix").collection("movies");
@@ -50,6 +54,8 @@ router.get('/list/:num', function (req, res, next) {
     //stringa di connessione al db
     const uri = "mongodb+srv://andrea-favullo:m0ng0D4RI0B4nF1@cluster0.dnkc2.mongodb.net/Cluster0?retryWrites=true&w=majority"
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     client.connect(err => {
         // mi connetto alla collection movies
@@ -79,6 +85,8 @@ router.get('/year/:year', function (req, res, next) {
     const uri = "mongodb+srv://andrea-favullo:m0ng0D4RI0B4nF1@cluster0.dnkc2.mongodb.net/Cluster0?retryWrites=true&w=majority"
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
     client.connect(err => {
         // mi connetto alla collection movies
         const collection = client.db("sample_mflix").collection("movies");
@@ -102,6 +110,8 @@ router.get('/rating/:rate', function (req, res, next) {
     //stringa di connessione al db
     const uri = "mongodb+srv://andrea-favullo:m0ng0D4RI0B4nF1@cluster0.dnkc2.mongodb.net/Cluster0?retryWrites=true&w=majority"
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     client.connect(err => {
         // mi connetto alla collection movies
